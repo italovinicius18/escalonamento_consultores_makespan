@@ -1,0 +1,6 @@
+id,custo,senioridade,especializacao,skills
+1,29.2,junior,java developer,"java,communication"
+2,53.2,mid-level,java developer,"java,linux,api"
+3,62.8,mid-level,java developer,"java,database,sql"
+4,87.5,senior,java developer,"java,api,performance"
+5,64.3,senior,infrastructure engineer,"linux,networking,backup"
