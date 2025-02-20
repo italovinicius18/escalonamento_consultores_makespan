@@ -14,31 +14,9 @@ Além disso, o script `gerar_compatibilidade.py` é utilizado para gerar a tabel
 
 ## Contexto e Modelagem do Problema
 
-Em projetos de consultoria, cada projeto é composto por um conjunto de tarefas com tempos base (horas) e cada tarefa pode ser executada por diferentes consultores com diferentes níveis de compatibilidade (fator de produção). O problema é modelado como um problema de *Unrelated Machines Scheduling*:
+Em projetos de consultoria, cada projeto é composto por um conjunto de tarefas com tempos base (horas) e cada tarefa pode ser executada por diferentes consultores com diferentes níveis de compatibilidade (fator de produção). O problema é modelado como um problema de *Unrelated Machines Scheduling*
 
-- **Variáveis:**
-  - \(x_{ij}\): variável binária que indica se a tarefa \(i\) é atribuída ao consultor \(j\).
-  - \(p_{ij}\): tempo de processamento da tarefa \(i\) se executada pelo consultor \(j\). Quando os tempos são derivados da compatibilidade, calcula-se:
-    \[
-    p_{ij} = \frac{d_i \times 100}{\text{comp}_{ij}}
-    \]
-    onde \(d_i\) é o tempo base da tarefa e \(\text{comp}_{ij}\) é a compatibilidade (em porcentagem) entre as skills da tarefa e do consultor.
-  - \(L_j\): carga total do consultor \(j\) (soma dos tempos das tarefas atribuídas).
-  - \(M\): makespan, que representa o tempo total do projeto e deve ser minimizado.
-
-- **Formulação do Modelo:**
-  
-  \[
-  \begin{aligned}
-  \text{minimize:} \quad & M \\
-  \text{subject to:} \quad & \sum_{j=1}^{m} x_{ij} = 1, \quad \forall\, i \in \{1,\dots,n\}, \\
-  & L_{j} = \sum_{i=1}^{n} p_{ij}\, x_{ij}, \quad \forall\, j \in \{1,\dots,m\}, \\
-  & L_{j} \le M, \quad \forall\, j \in \{1,\dots,m\}, \\
-  & x_{ij} \in \{0,1\}, \quad L_j \ge 0,\quad M \ge 0.
-  \end{aligned}
-  \]
-
-O modelo distribui as tarefas entre os consultores de modo que o consultor com maior carga (o bottleneck) seja otimizado, minimizando o tempo total de conclusão do projeto.
+O modelo distribui as tarefas entre os consultores de modo que o consultor com maior carga (o bottleneck) seja otimizado, minimizando o tempo total (makespan) de conclusão do projeto.
 
 ---
 
