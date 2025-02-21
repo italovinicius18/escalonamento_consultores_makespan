@@ -1,5 +1,5 @@
 [project]
-name = "trabalho"
+name = "escalonamento_consultores_makespan"
 version = "0.1.0"
 description = ""
 authors = [
